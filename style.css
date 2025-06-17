@@ -1,0 +1,193 @@
+body {
+    background: #111112 url('1387732.png') no-repeat center center fixed;
+    background-size: 100% auto;
+    background-blend-mode: luminosity;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-box,
+#dashboard-box {
+    min-height: 400px;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+}
+
+.box {
+    background: rgba(35,35,38,0.94);
+    margin: 30px auto;
+    padding: 30px 28px 22px 28px;
+    border-radius: 12px;
+    max-width: 400px;
+    box-shadow: 0 4px 18px #000a;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h2, h3, .wayne-title {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 14px;
+    text-align: left;
+    font-weight: 500;
+}
+
+#login-box label:first-of-type {
+    margin-top: 0;
+}
+
+#login-box input[type="text"],
+#login-box input[type="password"] {
+    margin-top: 2px;
+    margin-bottom: 14px;
+}
+
+input, button {
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+input {
+    background: #18191b;
+    color: #fff;
+    border: 1px solid #333;
+}
+
+input:focus {
+    outline: 2px solid #ffa600;
+    border-color: #ffa600;
+}
+
+button {
+    background: linear-gradient(90deg, #ffa600 10%, #333 90%);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    box-shadow: 0 2px 6px #0003;
+    transition: background 0.2s, color 0.2s;
+    margin: 7px 0 16px 0;
+}
+
+button:hover, .laranja-bg:hover {
+    background: linear-gradient(90deg, #ff8600 10%, #222 90%);
+    color: #fff !important;
+}
+
+.laranja {
+    color: #ffa600;
+}
+
+.laranja-bg {
+    background: linear-gradient(90deg, #ffae42 60%, #ff8600 100%);
+    color: #222 !important;
+    border: none;
+}
+
+.erro {
+    color: #ff5555;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+ul {
+    padding-left: 22px;
+    margin-top: 0;
+}
+
+#admin-section button {
+    width: auto;
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 8px;
+    padding: 7px 12px;
+    font-size: 1em;
+}
+
+#admin-section form input {
+    width: 30%;
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+
+#admin-section form button {
+    width: 90px;
+    margin-top: 0;
+}
+
+#dashboard-box h2 span#nome-usuario {
+    color: #ffa600;
+    font-weight: bold;
+}
+
+.wayne-title {
+    font-size: 2.1em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 8px;
+    margin-top: -12px;
+    background: #000;
+    color: #fff;
+    padding: 10px 0 12px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0006;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+.wayne-laranja {
+    color: #ffa600;
+}
+.wayne-branco {
+    color: #fff;
+}
+
+#lista-recursos-admin {
+    padding-left: 0;
+}
+
+.item-recurso-admin {
+    background: #18191b;
+    margin-bottom: 15px;
+    padding: 15px 12px 12px 12px;
+    border-radius: 8px;
+    list-style: none;
+    box-shadow: 0 2px 8px #0003;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.botoes-admin {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.botoes-admin button {
+    width: 100px;
+    margin: 0;
+    padding: 8px 0;
+    font-size: 1em;
+}

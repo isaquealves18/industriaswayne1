@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Indústrias Wayne - Sistema de Segurança</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="login-box" class="box">
+    <div class="wayne-title">
+        <span class="wayne-laranja">Indústrias</span> <span class="wayne-branco">Wayne</span>
+    </div>
+    <h2 class="laranja">Login</h2>
+    <label>Usuário:</label>
+    <input type="text" id="usuario">
+    <label>Senha:</label>
+    <input type="password" id="senha">
+    <button id="btn-entrar" onclick="login()">Entrar</button>
+    <p id="login-erro" class="erro"></p>
+</div>
+
+<div id="dashboard-box" class="box" style="display:none;">
+    <div class="header">
+        <h1><span class="laranja">Indústrias</span> Wayne</h1>
+    </div>
+    <h2>Bem-vindo, <span id="nome-usuario"></span></h2>
+    <p>Tipo de usuário: <span id="tipo-usuario" class="laranja"></span></p>
+    <p id="qtd-funcionarios" style="display:none;">
+        Contas de funcionário ativas: <span id="num-funcionarios" class="laranja"></span>
+    </p>
+    <div id="recursos-section">
+        <h3 class="laranja">Recursos Internos</h3>
+        <ul id="lista-recursos"></ul>
+    </div>
+    <div id="admin-section" style="display:none;">
+        <h3 class="laranja">Gerenciar Recursos</h3>
+        <form id="form-recursos" onsubmit="adicionarRecurso(event)">
+            <input type="text" id="nome-recurso" placeholder="Nome" required>
+            <input type="number" id="quantidade-recurso" placeholder="Quantidade" required>
+            <input type="text" id="tipo-recurso" placeholder="Tipo" required>
+            <button type="submit" class="laranja-bg">Adicionar</button>
+        </form>
+        <ul id="lista-recursos-admin"></ul>
+    </div>
+    <button onclick="logout()" class="laranja-bg">Sair</button>
+</div>
+<script src="wayne.js"></script>
+</body>
+</html>
