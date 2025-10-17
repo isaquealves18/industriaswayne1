@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -42,8 +42,24 @@
         </form>
         <ul id="lista-recursos-admin"></ul>
     </div>
+    
+    <div id="gerente-section" style="display:none;">
+        <h3 class="laranja">Gerenciar Funcionários</h3>
+        
+        <form id="form-funcionarios" onsubmit="adicionarFuncionario(event)">
+            <input type="text" id="novo-funcionario" placeholder="Nome de usuário" required>
+            <input type="password" id="senha-funcionario" placeholder="Senha" required>
+            <button type="submit" class="laranja-bg">Adicionar Funcionário</button>
+            <span id="erro-funcionario" style="color: red; display: block; margin-top: 5px;"></span>
+        </form>
+        
+        <h4 class="laranja">Funcionários Cadastrados:</h4>
+        <ul id="lista-funcionarios"></ul>
+    </div>
+    
     <button onclick="logout()" class="laranja-bg">Sair</button>
 </div>
+
 <script src="wayne.js"></script>
 </body>
 </html>
