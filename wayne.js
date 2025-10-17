@@ -38,6 +38,7 @@ function mostrarDashboard() {
     document.getElementById('nome-usuario').textContent = usuarioAtual.nome;
     document.getElementById('tipo-usuario').textContent = usuarioAtual.tipo;
     atualizarListaRecursos();
+    
     if (usuarioAtual.tipo === "admin") {
         document.getElementById('admin-section').style.display = 'block';
         atualizarListaRecursosAdmin();
@@ -49,8 +50,11 @@ function mostrarDashboard() {
         const qtd = Object.values(usuarios).filter(u => u.tipo === "funcionario").length;
         document.getElementById('qtd-funcionarios').style.display = 'block';
         document.getElementById('num-funcionarios').textContent = qtd;
+        document.getElementById('gerente-section').style.display = 'block';
+        atualizarListaFuncionarios();
     } else {
         document.getElementById('qtd-funcionarios').style.display = 'none';
+        document.getElementById('gerente-section').style.display = 'none';
     }
 }
 
@@ -117,6 +121,64 @@ function atualizarRecursoPrompt(idx) {
     recursos[idx] = {nome, quantidade, tipo};
     atualizarListaRecursos();
     atualizarListaRecursosAdmin();
+}
+
+function atualizarListaFuncionarios() {
+    const ul = document.getElementById('lista-funcionarios');
+    ul.innerHTML = "";
+    Object.keys(usuarios).forEach(username => {
+        if (usuarios[username].tipo === "funcionario") {
+            const li = document.createElement('li');
+            li.className = "item-funcionario";
+            const divInfo = document.createElement('div');
+            divInfo.textContent = `${username}`;
+            li.appendChild(divInfo);
+            const divBtns = document.createElement('div');
+            divBtns.className = "botoes-gerente";
+            const btnRemover = document.createElement('button');
+            btnRemover.textContent = "Remover";
+            btnRemover.classList.add("laranja-bg");
+            btnRemover.onclick = () => removerFuncionario(username);
+            divBtns.appendChild(btnRemover);
+            li.appendChild(divBtns);
+            ul.appendChild(li);
+        }
+    });
+}
+
+function adicionarFuncionario(event) {
+    event.preventDefault();
+    const username = document.getElementById('novo-funcionario').value.trim();
+    const senha = document.getElementById('senha-funcionario').value.trim();
+    const erro = document.getElementById('erro-funcionario');
+    
+    if (!username || !senha) {
+        erro.textContent = "Preencha todos os campos";
+        return;
+    }
+    
+    if (usuarios[username]) {
+        erro.textContent = "Usuário já existe";
+        return;
+    }
+    
+    usuarios[username] = {senha: senha, tipo: "funcionario"};
+    atualizarListaFuncionarios();
+    
+    const qtd = Object.values(usuarios).filter(u => u.tipo === "funcionario").length;
+    document.getElementById('num-funcionarios').textContent = qtd;
+    
+    document.getElementById('form-funcionarios').reset();
+    erro.textContent = "";
+}
+
+function removerFuncionario(username) {
+    if (confirm(`Deseja remover o funcionário ${username}?`)) {
+        delete usuarios[username];
+        atualizarListaFuncionarios();
+        const qtd = Object.values(usuarios).filter(u => u.tipo === "funcionario").length;
+        document.getElementById('num-funcionarios').textContent = qtd;
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
